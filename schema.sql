@@ -75,7 +75,6 @@ CREATE TABLE item_race
 (
   item_id INT,
   race CHAR(3),
-  modifier INT NOT NULL,
   CONSTRAINT pk_item_stat PRIMARY KEY (item_id, race),
   CONSTRAINT fk_item_race_item FOREIGN KEY (item_id) REFERENCES item(id),
   CONSTRAINT fk_item_race_race FOREIGN KEY (race) REFERENCES race(id)
