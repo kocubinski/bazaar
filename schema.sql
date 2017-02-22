@@ -1,3 +1,5 @@
+SET SCHEMA 'public';
+
 CREATE TABLE size
 (
   id CHAR(5),
@@ -41,7 +43,7 @@ CREATE TABLE item
   weight DECIMAL NOT NULL,
   size CHAR(5) NOT NULL,
   CONSTRAINT pk_item PRIMARY KEY (id),
-  CONSTRAINT ak_site PRIMARY KEY (name),
+  CONSTRAINT ak_site UNIQUE (name),
   CONSTRAINT fk_item_size FOREIGN KEY (size) REFERENCES size(id)
 );
 
