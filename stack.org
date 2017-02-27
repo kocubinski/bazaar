@@ -1,0 +1,23 @@
+#+TITLE: Java / Scala tech stack and ecosystem
+
+* Data layer
+** ScalikeJDBC https://github.com/scalikejdbc/scalikejdbc
+   - Full featured out of the box wrapper around JDBC
+   - Uses commons-dbcp for connection pooling out of the box
+   
+** scala-jdbc https://github.com/takezoe/scala-jdbc
+   - Someone's quite reasonable take on a more lean version scalikeJDBC ?
+
+** HikariCP https://github.com/brettwooldridge/HikariCP
+   - Evidently the fastest, most optimized connection pool implementation for the JVM
+
+** SansOrm - https://github.com/brettwooldridge/SansOrm
+   - Mapping for POJOs without generation
+
+* IOC
+** Macwire - https://github.com/adamw/macwire
+   Compile-time DI for scala
+
+* Conifuration
+** Typesafe Config - https://github.com/typesafehub/config
+   - Standard for plaintext configuration
