@@ -1,0 +1,17 @@
+#+TITLE: Dev outline
+
+* Minimum Viable Product
+** Data layer
+   - Custom with built-in postgres connection pool provider or no connection pooling at all
+   - Autoclosing with a ~using~ construct
+   - Stored procedures
+   - Syntactic sugar for CQRS anonymous objects or tuples (whatever seems more idiomatic)
+   - Simple column -> property (or argument) mapping
+
+** Web layer
+   - Scalatra ?
+
+** Front End
+   - Scalatra templating
+   - vue.js and jQuery for rich pages
+   
