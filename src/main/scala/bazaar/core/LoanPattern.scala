@@ -1,9 +1,12 @@
+package bazaar.core
+
 import scala.util.control.Exception.ignoring
 
 trait LoanPattern {
   type Closable = { def close(): Unit }
 
-  // can this be java.sql.AutoClosable ?
+  // this is very cool..
+  // scalac seems to resolve Closable to AutoClosable (parent of java.sql.Connection) based on the shape of type
 
   def using[R <: Closable, A](resource: R)(f: R => A): A = {
     try {

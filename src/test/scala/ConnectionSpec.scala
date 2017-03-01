@@ -1,9 +1,10 @@
+import bazaar.core.LoanPattern
 import bazaar.data.ConnectionPool
 import org.scalatest.{FlatSpec, Matchers}
 
 class ConnectionSpec extends FlatSpec with Matchers with LoanPattern {
 
-  behavior of "ConnectionPool behavior of data layer"
+  behavior of "ConnectionPool behavior of bazaar.data layer"
 
   val cp = ConnectionPool
 
