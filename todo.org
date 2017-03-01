@@ -2,7 +2,7 @@
 
 * Minimum Viable Product
 ** Data layer
-   - Custom with built-in postgres connection pool provider or no connection pooling at all
+   - Plain JDBC with built-in postgres connection pool provider or no connection pooling at all
    - Autoclosing with a ~using~ construct
    - Stored procedures
    - Syntactic sugar for CQRS anonymous objects or tuples (whatever seems more idiomatic)
@@ -10,6 +10,8 @@
 
 ** Web layer
    - Scalatra ?
+   - Poor man's DI with implicits
+     In practice this looks like service-locator in method params, constructor if class.
 
 ** Front End
    - Scalatra templating

@@ -8,5 +8,8 @@ lazy val root = (project in file(".")).
       version      := "0.1.0-SNAPSHOT"
     )),
     name := "bazaar",
-    libraryDependencies += scalaTest % Test
+    libraryDependencies ++= Seq (
+      scalaTest % Test,
+      "org.postgresql" % "postgresql" % "42.0.0"
+      )
   )

@@ -17,8 +17,8 @@ object LaSql {
     val regex = """^\s*--\sname:\s*(\S+)""".r
     val source = Source.fromResource(file)
     val queries = Map[String, String]()
-    var queryName = "";
-    
+    var queryName = ""
+
     for (line <- source.getLines) {
       regex.findFirstMatchIn(line) match {
         case Some(name) => queryName = name.group(1) 
