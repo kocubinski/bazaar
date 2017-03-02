@@ -1,7 +1,11 @@
 package bazaar.data
 
-class ParameterizedQuery(sql: String) {
+import java.sql.Connection
+
+class ParameterizedQuery(sql: String)(implicit conn : Connection = ConnectionPool.borrow) {
   type collector = (Seq[String], String)
+
+  private var parameterizedSql = sql
 
   val params: Seq[String] = {
     val res = sql.foldLeft((Seq[String](), ""))((t: collector, c: Char) =>
@@ -13,5 +17,8 @@ class ParameterizedQuery(sql: String) {
     if (res._2 isEmpty) res._1 else res._1 :+ res._2
   }
 
-  //sql.foldLeft((Seq[String], ""))((t : collector, c : Char) =
+  def set(param :String, value: Object) : this.type = {
+    val i = param.indexOf(param)
+
+  }
 }
