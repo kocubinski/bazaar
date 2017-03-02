@@ -1,16 +1,16 @@
-package LaSql
+package bazaar.data
 
 import scala.collection.mutable.Map
 import scala.io.Source
 
-class LaSql(val queries: Map[String, String]) { 
+class SqlFile(val queries: Map[String, String]) {
   def exec(name: String) = {
   }
 }
 
-object LaSql {
-  def apply(file: String) : LaSql = {
-    new LaSql(scan(file))
+object SqlFile {
+  def apply(file: String) : SqlFile = {
+    new SqlFile(scan(file))
   }
 
   def scan(file: String) : Map[String, String] = {
