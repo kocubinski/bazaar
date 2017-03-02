@@ -11,5 +11,6 @@ lazy val root = (project in file(".")).
     libraryDependencies ++= Seq (
       scalaTest % Test,
       "org.postgresql" % "postgresql" % "42.0.0"
-      )
+      ),
+    unmanagedResourceDirectories in Test ++= (unmanagedResourceDirectories in Compile).value
   )

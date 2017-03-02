@@ -1,7 +1,7 @@
 import bazaar.data.ParameterizedQuery
 import org.scalatest.{FlatSpec, Matchers}
 
-class ParsingSpec extends FlatSpec with Matchers {
+class QuerySpec extends FlatSpec with Matchers {
   behavior of "ParameterizedQuery should parse parameter names correctly"
 
   val basicSql = "SELECT id, Name, Age, TS FROM TestTable WHERE Age < :age OR id = :id"

@@ -1,6 +1,6 @@
 SET SCHEMA 'public';
 
-CREATE TABLE size
+CREATE TABLE item_size
 (
   id CHAR(5),
   CONSTRAINT pk_size PRIMARY KEY (id)
@@ -18,7 +18,7 @@ CREATE TABLE race
   CONSTRAINT pk_race PRIMARY KEY (id)
 );
 
-CREATE TABLE class
+CREATE TABLE player_class
 (
   id CHAR(3),
   CONSTRAINT pk_class PRIMARY KEY (id)
@@ -39,12 +39,12 @@ CREATE TABLE modifier
 CREATE TABLE item
 (
   id SERIAL,
-  name VARCHAR(256),
+  "name" VARCHAR(256),
   weight DECIMAL NOT NULL,
-  size CHAR(5) NOT NULL,
+  the_size CHAR(5) NOT NULL,
   CONSTRAINT pk_item PRIMARY KEY (id),
   CONSTRAINT ak_site UNIQUE (name),
-  CONSTRAINT fk_item_size FOREIGN KEY (size) REFERENCES size(id)
+  CONSTRAINT fk_item_size FOREIGN KEY (the_size) REFERENCES item_size(id)
 );
 
 CREATE TABLE item_charge
