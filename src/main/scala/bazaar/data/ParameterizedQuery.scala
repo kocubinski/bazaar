@@ -12,7 +12,7 @@ class ParameterizedQuery(sql: String)(implicit conn : Connection = ConnectionPoo
     val res = sql.foldLeft((Seq[String](), ""))((t: collector, c: Char) =>
       c match {
         case `p` => (t._1, c.toString)
-        case ' ' | ')' => if (t._2 isEmpty) t else (t._1 :+ t._2, "")
+        case ' ' | ')' | ';' => if (t._2 isEmpty) t else (t._1 :+ t._2, "")
         case _ => if (t._2 isEmpty) t else (t._1, t._2 + c)
       })
     if (res._2 isEmpty) res._1 else res._1 :+ res._2

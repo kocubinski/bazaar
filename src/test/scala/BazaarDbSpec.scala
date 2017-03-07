@@ -11,12 +11,17 @@ class BazaarDbSpec extends FlatSpec with Matchers with LoanPattern {
 
   val seed = SqlFile("sql/seed.sql")
 
-  it should "insert rows into a table" in {
-    using(seed.getQuery("insert_race").set("id", "HUM"))(st => {
+  it should "delete and insert rows into a table" in {
+    val race = "abc"
+
+    using (seed.getQuery("delete_race").set("id", race))(st => st.delete())
+
+    using(seed.getQuery("insert_race").set("id", race))(st => {
       val res = st.insert()
       res should equal(1)
     })
-    using (seed.getQuery("delete_all_races"))(st => st.delete())
+
+    using (seed.getQuery("delete_race").set("id", race))(st => st.delete())
   }
 
 }
